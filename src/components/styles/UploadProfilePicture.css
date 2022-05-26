@@ -1,0 +1,25 @@
+.uploadProfilePicture {
+    background: #eee;
+    padding: 0 10%;
+}
+
+.uploadProfilePicture .main{
+    background: white;
+    display: flex;
+    min-height: 80vh;
+    padding: 10px;
+}
+.uploadProfilePicture .main .leftMain{
+    flex-grow: 1.5;
+}
+.uploadProfilePicture .main .rightMain{
+    flex-grow: 1;
+}
+
+.uploadProfilePicture .main .rightMain > div{
+    width: 420px;
+    height: auto;
+    border: 1px solid rgba(41, 37, 37, 0.452);
+    margin-bottom: 10px;
+    padding: 10px;
+}

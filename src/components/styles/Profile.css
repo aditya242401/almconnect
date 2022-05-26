@@ -1,0 +1,93 @@
+.profile {
+    padding: 0px 20%;
+    background: #eee;
+}
+.profile .section1 {
+    background: white;
+    padding-bottom: 20px;
+}
+.profile .section1 .section11 .profilepic {
+    margin-left: 10px;
+    margin-top: -40px;
+    float: left;
+    position: relative;
+    border: 5px solid #eee;
+    background-color: white;
+}
+.profile .section1 .section11 .photoleft {
+    float: left;
+    padding-left: 10px;
+}
+.profile .section1 .section11 .photoright {
+    float: right;
+    padding-right: 10px;
+    margin-top: 5px;
+}
+.profile .section1 .section11 .photoright .followBtn,.profile .section1 .section11 .photoright .messageBtn{
+    padding: 8px 30px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+}
+
+.profile .section1 .section11 .photoright .followBtn{
+    background-color: tomato;
+}
+.profile .section1 .section11 .photoright .messageBtn{
+    background-color: teal;
+}
+.profile .section1 .section11 .photoright .followBtn:hover{
+    opacity: 0.8;
+}
+.profile .section1 .section11 .photoright .messageBtn:hover{
+    opacity: 0.8;
+}
+
+.profile .section2 {
+    background: white;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.profile .section3{
+    display: flex;
+    justify-content: space-between;
+}
+.profile .section3 .leftSection3{
+    background: white;
+    margin-top: 20px;
+    padding: 10px;
+    flex-grow: 1;
+}
+.profile .section3 .rightSection3{
+    background: white;
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+
+.profile .sectionLast .postMain {
+    background: white;
+    margin-top: 20px;
+    padding: 10px;
+}
+.profile .sectionLast .postMain .postHeader {
+    padding: 0px 0px 8px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.profile .sectionLast .postMain .postBody {
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.profile .sectionLast .postMain .postBody pre{
+    white-space:pre-wrap;
+    text-align: justify;
+}
+
+.profile .sectionLast .postMain .postFooter {
+    padding: 8px 0px;
+}

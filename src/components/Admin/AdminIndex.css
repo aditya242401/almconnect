@@ -1,0 +1,58 @@
+.adminindex {
+    background: #eee;
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.adminindex .box{
+    width: 400px;
+    background: white;
+    box-shadow: 1px 2px 1px 1px #ccc;
+    border: 1px solid #ccc;
+}
+.adminindex .box .boxheader {
+    text-align: center;
+    background-color: #f50057;
+    color: #fff;
+}
+.adminindex .box .boxbody {
+    padding: 20px;
+}
+
+.adminindex .box .boxbody .imgUser{
+    border-radius: 50%;
+    background: rgb(42, 153, 197);
+    margin-bottom: 10px;
+}
+.adminindex .box .boxbody .text-input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 0px 10px;
+    font-size: 15px;
+}
+.adminindex .box .boxbody .loginbtn{
+    padding: 8px 40px;
+    border: 0px;
+    font-size: 16px;
+    background-color: #f50057;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px 20px;
+    transition: all 1s;
+}
+.adminindex .box .boxbody .loginbtn:hover{
+    background: green;
+}
+
+.adminindex .box .boxfooter{
+    text-align: right;
+    padding: 10px;
+    background: #eee;
+}
+.adminindex .box .boxfooter a{
+    color: #003cff;
+}

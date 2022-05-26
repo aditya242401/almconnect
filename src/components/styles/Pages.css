@@ -1,0 +1,60 @@
+.pages, .addPage{
+    background: #eee;
+    padding: 0 10%;
+}
+.pages .mainBody, .addPage .mainBody{
+    background: white;
+    padding: 10px;
+    min-height: 90vh;
+}
+
+.pages .mainBody .pagesRow{
+    padding: 10px 0px;
+    display: flex;
+}
+
+.pages .mainBody .addPage{
+    padding: 8px 20px;
+    border: 0;
+    background:olivedrab;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.addPage .mainBody{
+    display: flex;
+}
+
+.addPage .mainBody form {
+    flex-grow: 1;
+}
+.addPage .mainBody form input{
+    width: 100%;
+    margin-top: 8px;
+    height: 30px;
+    padding: 5px;
+    font-size: 13px;
+}
+.addPage .mainBody form textarea{
+    width: 100%;
+    margin-top: 8px;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.addPage .mainBody form select{
+    height: 30px;
+    margin-top: 8px;
+}
+
+.addPage .mainBody form input[type="submit"]{
+    border: 0;
+    background: rgb(26, 117, 38);
+    color: white;
+    cursor: pointer;
+}
+.addPage .mainBody .rightMainBody{
+    margin-left: 20px;
+    width: 100%;
+}

@@ -1,0 +1,129 @@
+.page{
+    padding: 0px 20%;
+    background: #eee;
+}
+
+.page .section1{
+    background-color: white;
+    padding-bottom: 10px;
+}
+.page .section1 .section11 .pageLogo{
+    margin-top: -50px;
+    margin-left: 15px;
+    border: 5px solid rgb(78, 77, 77);
+    float: left;
+    position: relative;
+}
+.page .section1 .section11 .pageLogo +div button{
+    padding: 8px 30px;
+    margin-top: 9px;
+    cursor: pointer;
+}
+.page .section2{
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.page .postSection {
+    background: white;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.page .postSection .postTextarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.page .postSection .postButton {
+    margin-top: 8px;
+    background-color: teal;
+    border: 1px solid teal;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    outline: 0;
+    padding: 10px 35px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.page .postSection .postButton:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+
+.page .postMain {
+    background: white;
+    margin-top: 18px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+    border-radius: 5px;
+}
+
+.page .postMain .postBody pre{
+    white-space:pre-wrap;
+    text-align: justify;
+}
+
+.page .postHeader{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    margin-bottom: 10px;
+}
+.page .postFooter{
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+}
+.page .postFooter .postFooterSec1{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.page .postFooter .postFooterSec1 button{
+    flex-grow: 1;
+}
+.page .postFooter .commentDiv {
+    padding: 10px;
+}
+.page .postFooter .commentDiv .commentRow {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.page .postFooter .commentDiv>form {
+    display: flex;
+}
+.page .postFooter .commentDiv .commentInputText{
+    font-size: 13px;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 5px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 0;
+}
+.page .postFooter .commentDiv .commentInputText:focus{
+    outline: 0;
+}
+.page .postFooter .commentDiv .commentSubmitBtn{
+    padding: 8px 25px;
+    border: 0;
+    background-color: rgb(122, 31, 3);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}

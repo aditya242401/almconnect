@@ -1,0 +1,66 @@
+.singlePost{
+    width: 60%;
+    margin: auto;
+}
+
+.singlePost .postMain {
+    background: white;
+    margin-top: 18px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+    border-radius: 5px;
+}
+
+.singlePost .postMain .postBody pre{
+    white-space:pre-wrap;
+    text-align: justify;
+}
+
+.singlePost .postHeader{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    margin-bottom: 10px;
+}
+.singlePost .postFooter{
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+}
+.singlePost .postFooter .postFooterSec1{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.singlePost .postFooter .postFooterSec1 button{
+    flex-grow: 1;
+}
+.singlePost .postFooter .commentDiv {
+    padding: 10px;
+}
+.singlePost .postFooter .commentDiv .commentRow {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.singlePost .postFooter .commentDiv>form {
+    display: flex;
+}
+.singlePost .postFooter .commentDiv .commentInputText{
+    font-size: 13px;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 5px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 0;
+}
+.singlePost .postFooter .commentDiv .commentInputText:focus{
+    outline: 0;
+}
+.singlePost .postFooter .commentDiv .commentSubmitBtn{
+    padding: 8px 25px;
+    border: 0;
+    background-color: rgb(122, 31, 3);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}

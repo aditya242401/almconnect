@@ -1,0 +1,68 @@
+.wrapperSignup,.wrapperLogin{
+  display: flex;
+  min-height: 85vh;
+  justify-content: center;
+  align-items: center;
+  background: url("../../images/loginbg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px 0px;
+}
+.boxSignup,.boxLogin{
+  background: white;
+  box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.2);
+  width: 550px;
+}
+.headerBoxSignup, .headerBoxLogin{
+  background: #f50057;
+  text-align: center;
+  color: white;
+  border-bottom: 2px solid #333;
+  padding: 10px 0px;
+}
+.footerBoxSignup,.footerBoxLogin{
+  padding: 20px;
+  padding-bottom: 30px;
+}
+.footerBoxLogin .imgUser{
+  border-radius: 50%;
+  background: rgb(42, 153, 197);
+  border: 1px solid #ccc;
+}
+.footerBoxLogin .login-input,.footerBoxSignup .login-input{
+  width: 100%;
+  height: 35px;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 0px 10px;
+  color: #333;
+}
+.login-textarea{
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 10px;
+  font-size: 16px;
+}
+.spanLoginText{
+  margin-top: 10px;
+}
+.login-input-radio{
+  margin-left: 10px;
+  margin: 10px 0px;
+}
+.signupBtn,.loginBtn{
+  margin-top: 10px;
+  padding: 10px 40px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #f50057;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  transition: 0.3s;
+}
+.signupBtn:hover, .loginBtn:hover{
+  background: rgb(125, 211, 168);
+  color: black;
+}

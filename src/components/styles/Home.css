@@ -1,0 +1,147 @@
+.homepage {
+    background: #eee;
+}
+.homepage .sectionLeft{
+    width: 20%;
+    background: white;
+    float: left;
+    min-height: 600px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+}
+.homepage .sectionRight{
+    width: 60%;
+    float: left;
+    padding: 0px 20px 20px 40px;
+}
+.homepage .sectionLeft .leftMenu ul li{
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.homepage .sectionRight .postSection {
+    background: white;
+    padding: 20px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+}
+
+.homepage .sectionRight .postSection .postTextarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.homepage .sectionRight .postSection .postButton {
+    margin-top: 8px;
+    background-color: teal;
+    border: 1px solid teal;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    outline: 0;
+    padding: 10px 35px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.homepage .sectionRight .postSection .postButton:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+.homepage .sectionRight .allPosts .postHeader {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    margin-bottom: 10px;
+}
+.homepage .sectionRight .allPosts .postMain {
+    background: white;
+    margin-top: 18px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+    border-radius: 5px;
+}
+.homepage .sectionRight .allPosts .postFooter{
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+}
+.homepage .sectionRight .allPosts .postFooter .postFooterSec1{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.homepage .sectionRight .allPosts .postFooter .postFooterSec1 button{
+    flex-grow: 1;
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv {
+    padding: 10px;
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv .commentRow {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv>form {
+    display: flex;
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv .commentInputText{
+    font-size: 13px;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 5px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 0;
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv .commentInputText:focus{
+    outline: 0;
+}
+.homepage .sectionRight .allPosts .postFooter .commentDiv .commentSubmitBtn{
+    padding: 8px 25px;
+    border: 0;
+    background-color: rgb(122, 31, 3);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+.homepage .sectionRight .allPosts .postMain .postBody pre{
+    white-space:pre-wrap;
+    text-align: justify;
+}
+
+.homepage .sectionRight .allPosts .readMorePosts{
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: coral;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.homepage .sectionRightPannel{
+    width: 19%;
+    background: white;
+    padding: 10px 0px;
+    float: right;
+    min-height: 600px;
+    box-shadow: -1px 1px 3px 1px #ccc;
+}
+
+.FloatingDiv{
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    background: white;
+    width: 700px;
+    height: 500px;
+    border: 2px solid grey;
+    padding: 10px;
+}

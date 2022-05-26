@@ -1,0 +1,36 @@
+.findconnections{
+    background: #eee;
+    padding: 10px 10%;
+    min-height: 100vh;
+}
+.findconnections .searchBox{
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+}
+.findconnections .searchBox .inlineSearchBtn .inputSearch{
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.findconnections .searchResult{
+    margin-top: 10px;
+    padding: 10px 0px;
+    background: white;
+    min-height: 80vh;
+    padding: 10px;
+}
+
+.findconnections .searchResult .userRow{
+    background-color: #ccc;
+    margin-top: 5px;
+    padding: 10px;
+}
+.findconnections .searchResult .userRow .searchDataProfile{
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: white;
+}

@@ -1,0 +1,40 @@
+.notifications{
+    background: #eee;
+    padding: 0 10%;
+}
+
+.notifications .mainDiv{
+    min-height: 550px;
+    background: white;
+    padding: 10px;
+}
+
+.notifications .mainDiv .notificationsWrapper .divRead{
+    padding: 5px 0px;
+}
+
+.notifications .mainDiv .notificationsWrapper .divUnread{
+    padding: 5px 0px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.notifications .mainDiv .notificationsWrapper .acceptFriendRequest{
+    padding: 8px 20px;
+    background: rgb(47, 119, 47);
+    color: white;
+    border: 0;
+    font-size: 13px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.notifications .mainDiv .notificationsWrapper .deleteFriendRequest{
+    padding: 8px 20px;
+    background: rgb(190, 39, 39);
+    color: white;
+    border: 0;
+    font-size: 13px;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
