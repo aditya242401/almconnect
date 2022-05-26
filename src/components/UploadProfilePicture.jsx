@@ -10,19 +10,19 @@ import {proxy} from '../../package.json';
 
 const UploadProfilePicture = () => {
   const navigate = useNavigate();
-  const [userInfo, setUserinfo] = useState({});
+  // const [userInfo, setUserinfo] = useState({});
 
   useEffect(() => {
     if (localStorage.getItem("userId")) {
-      let loginid = localStorage.getItem("userId");
+      // let loginid = localStorage.getItem("userId");
       // Set Login Data
-      Axios.get( proxy+"/getDataById", { params: { loginid: loginid } }).then((response) => {
-        setUserinfo(response.data[0]);
-      });
+      // Axios.get( proxy+"/getDataById", { params: { loginid: loginid } }).then((response) => {
+      //   setUserinfo(response.data[0]);
+      // });
     } else {
       navigate("/Login");
     }
-  }, []);
+  }, [navigate]);
 
 
   const [src, setFile] = useState(null);

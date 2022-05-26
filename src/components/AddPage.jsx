@@ -1,5 +1,5 @@
 import Header from "./includes/Header";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import './styles/Pages.css';
@@ -23,7 +23,7 @@ const AddPage = () => {
         } else {
             navigate("/Login");
         }
-    }, []);
+    }, [navigate]);
 
     const addPageFun = (e) => {
         e.preventDefault()

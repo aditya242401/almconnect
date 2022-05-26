@@ -18,7 +18,7 @@ const Index = () => {
       return (
           <div className="collegesrow" key={i}>
                 <div className="colegesrowimg">
-                  <img src={ proxy+""+college.logo}/>
+                  <img src={ proxy+""+college.logo} alt="..."/>
                 </div>
                 <h3>{college.name}</h3>
                 <p>{college.address}</p>
@@ -34,8 +34,8 @@ const Index = () => {
           <div className='section1'>
             <div style={{"marginTop":"-100px"}}>
               <h1 style={{ "fontSize":"50px","color":"white","marginLeft":"40px" }}>All College Student, Alumni<br/>in One Place ❤</h1>
-                <input type='text' placeholder='Search Your College, Student, Aluminai' className="search-index"/>
-                <button className="button-index"><i className="far fa-search"></i> Search</button>
+                {/* <input type='text' placeholder='Search Your College, Student, Aluminai' className="search-index"/> */}
+                {/* <button className="button-index"><i className="far fa-search"></i> Search</button> */}
             </div>
           </div>
           <div className="section2">

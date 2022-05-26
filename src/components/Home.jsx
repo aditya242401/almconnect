@@ -31,7 +31,7 @@ const Home = () => {
         } else {
             navigate("/Login");
         }
-    }, []);
+    }, [navigate]);
 
     // Function For Format The Date
     const formatDate = (date) => {
@@ -71,7 +71,6 @@ const Home = () => {
         });
     }
 
-
     const getAllPosts = (loginid) => {
         Axios.get(proxy + "/getAllPosts", { params: { loginid: loginid } }).then((response) => {
             setPosts(response.data);
@@ -84,7 +83,7 @@ const Home = () => {
         const postId = e.target[1].value;
 
         Axios.post(proxy+ "/addComment", { loginid: localStorage.getItem("userId"), commentText: commentText, postId: postId }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 e.target[0].value = "";
                 getAllPosts(userinfo.id)
             }
@@ -96,7 +95,7 @@ const Home = () => {
         const typeid = e.target.id;
 
         Axios.post(proxy+ "/addLike", { loginid: localStorage.getItem("userId"), liketype: liketype, typeid: typeid }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 getAllPosts(userinfo.id)
             } else {
                 alert("Some Error in Server, Please try Again!!!")
@@ -109,7 +108,7 @@ const Home = () => {
         const typeid = e.target.id;
 
         Axios.post(proxy+ "/deleteLike", { loginid: localStorage.getItem("userId"), liketype: liketype, typeid: typeid }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 getAllPosts(userinfo.id)
             } else {
                 alert("SOme Error in Server, Please try Again!!!")
@@ -119,16 +118,16 @@ const Home = () => {
 
     const getLikePostStatusCount = (status,count,type) => {
 
-        if(status && status==true){
-            if(count==1){
+        if(status && status===true){
+            if(count===1){
                 return `You Like This ${type}!!!`;
-            } else if(count==2){
+            } else if(count===2){
                 return `You and 1 Other Person Like This ${type}!!!`;
             } else if(count>2){
                 return `You and ${count} Other Peoples Like This ${type}!!!`;
             }
         } else {
-            if(count==1){
+            if(count===1){
                 return `1 Person Like This ${type}!!!`;
             } else if(count>1){
                 return `${count} Peoples Like This ${type}!!!`;
@@ -144,7 +143,7 @@ const Home = () => {
             <div className="postMain" key={obj.id}>
                 <div className="postHeader">
                     <Link to={"/Profile/" + obj.loginid}>
-                        <img src={ proxy + obj.profile_pic} height={40} />
+                        <img src={ proxy + obj.profile_pic} height={40}  alt="..."/>
                     </Link>
                     <div style={{ "marginLeft": "8px", "flexGrow": "1" }}>
                         <p style={{ "fontSize": "16px" }}><Link to={"/Profile/" + obj.loginid}><b>{obj.fullname}</b></Link></p>
@@ -158,16 +157,16 @@ const Home = () => {
                 </div>
                 <div className="postBody">
                     <pre width="100%" style={{"margin":"10px 10px"}}>
-                        {obj.posttext != "[object Object]" ? <>{obj.posttext}</> : <></>}
+                        {obj.posttext !== "[object Object]" ? <>{obj.posttext}</> : <></>}
                     </pre>
-                    {obj.postimg ? <><img src={proxy  + obj.postimg} width="100%" /> </> : <></>}
+                    {obj.postimg ? <><img src={proxy  + obj.postimg} width="100%" alt="..."/> </> : <></>}
                 </div>
                 <div className="postFooter">
                     <p style={{ "margin": "5px 0px 0px 10px","fontSize":"13px"  }}>
                         {getLikePostStatusCount(obj.likePostStatus,obj.likePostCount,"Post")}
                     </p>
                     <div className="postFooterSec1">
-                        {obj.likePostStatus && obj.likePostStatus==true ?
+                        {obj.likePostStatus && obj.likePostStatus===true ?
                             <button value="Post" name={index} className="dislikeBtn" onClick={dislikeFun} id={obj.id}><i className="far fa-thumbs-down"></i> Liked</button>
                             : <button value="Post" name={index} className="likeBtn" onClick={likeFun} id={obj.id}><i className="far fa-thumbs-up"></i> Like</button>
                         }
@@ -180,7 +179,7 @@ const Home = () => {
                                 return (
                                     <div className="commentRow" key={i}>
                                         <div style={{ "display": "flex", "padding": "0 5px 5px 5px" }}>
-                                            <img src={proxy + ele.profile_pic} height={32} />
+                                            <img src={proxy + ele.profile_pic} height={32} alt="..."/>
                                             <div>
                                             <p style={{ "marginLeft": "5px" }}><b>{ele.fullname}</b></p>
                                             <p style={{ "fontSize":"11px", "color":"#88898a", "marginLeft": "5px", "lineHeight": "18px"}}>{formatDate(new Date(ele.createdAt))} </p>
@@ -199,7 +198,7 @@ const Home = () => {
                             })
                         }
                         <form method="post" onSubmit={submitComment}>
-                            <img src={proxy+userinfo.profile_pic} height="40px" style={{"border":"1px solid rgba(0,0,0,0.2)","borderRight":"0"}}/>
+                            <img src={proxy+userinfo.profile_pic} height="40px"  alt="..." style={{"border":"1px solid rgba(0,0,0,0.2)","borderRight":"0"}}/>
                             <input type="text" className="commentInputText" placeholder="Add Your Comment" />
                             <input type="hidden" value={obj.id} />
                             <input type="submit" className="commentSubmitBtn" value="POST" />

@@ -17,7 +17,7 @@ const FindConnections = () => {
         } else {
             navigate("/Login");
         }
-    }, []);
+    }, [navigate]);
 
     const submitSearch = (e) => {
         let s = e.target.value;

@@ -25,7 +25,7 @@ const DefaultPage = () => {
             Axios.get(proxy + "/getPageById", { params: { pageid: pageid } }).then((response) => {
                 if (response.data && response.data.length > 0) {
                     setPageData(response.data[0]);
-                    if (response.data[0].createdby == localStorage.getItem("userId")) {
+                    if (response.data[0].createdby === localStorage.getItem("userId")) {
                         setViewType("Admin")
                     } else {
                         setViewType("User")
@@ -35,7 +35,7 @@ const DefaultPage = () => {
                 }
             })
         }
-    }, []);
+    }, [param.pageid]);
 
     const adminData = () => {
         return (
@@ -88,7 +88,7 @@ const DefaultPage = () => {
         const postId = e.target[1].value;
 
         Axios.post(proxy+ "/addComment", { loginid: localStorage.getItem("userId"), commentText: commentText, postId: postId }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 e.target[0].value = "";
                 getAllPosts(param.pageid)
             }
@@ -100,7 +100,7 @@ const DefaultPage = () => {
         const typeid = e.target.id;
 
         Axios.post(proxy+ "/addLike", { loginid: localStorage.getItem("userId"), liketype: liketype, typeid: typeid }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 getAllPosts(param.pageid)
             } else {
                 alert("Some Error in Server, Please try Again!!!")
@@ -113,7 +113,7 @@ const DefaultPage = () => {
         const typeid = e.target.id;
 
         Axios.post(proxy+ "/deleteLike", { loginid: localStorage.getItem("userId"), liketype: liketype, typeid: typeid }).then((response) => {
-            if (response.data.affectedRows && response.data.affectedRows == 1) {
+            if (response.data.affectedRows && response.data.affectedRows === 1) {
                 getAllPosts(param.pageid)
             } else {
                 alert("SOme Error in Server, Please try Again!!!")
@@ -123,16 +123,16 @@ const DefaultPage = () => {
 
     const getLikePostStatusCount = (status,count,type) => {
 
-        if(status && status==true){
-            if(count==1){
+        if(status && status===true){
+            if(count===1){
                 return `You Like This ${type}!!!`;
-            } else if(count==2){
+            } else if(count===2){
                 return `You and 1 Other Person Like This ${type}!!!`;
             } else if(count>2){
                 return `You and ${count} Other Peoples Like This ${type}!!!`;
             }
         } else {
-            if(count==1){
+            if(count===1){
                 return `1 Person Like This ${type}!!!`;
             } else if(count>1){
                 return `${count} Peoples Like This ${type}!!!`;
@@ -148,7 +148,7 @@ const DefaultPage = () => {
             <div className="postMain" key={index}>
                 <div className="postHeader">
                     <Link to={"/Page/" + obj.author}>
-                        <img src={ proxy + obj.logo} height={40} />
+                        <img src={ proxy + obj.logo} height={40} alt="..."/>
                     </Link>
                     <div style={{ "marginLeft": "8px", "flexGrow": "1" }}>
                         <p style={{ "fontSize": "16px" }}><Link to={"/Page/" + obj.author}><b>{obj.name}</b></Link></p>
@@ -162,16 +162,16 @@ const DefaultPage = () => {
                 </div>
                 <div className="postBody">
                     <pre width="100%" style={{"margin":"10px 10px"}}>
-                        {obj.posttext != "[object Object]" ? <>{obj.posttext}</> : <></>}
+                        {obj.posttext !== "[object Object]" ? <>{obj.posttext}</> : <></>}
                     </pre>
-                    {obj.postimg ? <><img src={proxy  + obj.postimg} width="100%" /> </> : <></>}
+                    {obj.postimg ? <><img src={proxy  + obj.postimg} width="100%" alt="..."/> </> : <></>}
                 </div>
                 <div className="postFooter">
                     <p style={{ "margin": "5px 0px 0px 10px","fontSize":"13px"  }}>
                         {getLikePostStatusCount(obj.likePostStatus,obj.likePostCount,"Post")}
                     </p>
                     <div className="postFooterSec1">
-                        {obj.likePostStatus && obj.likePostStatus==true ?
+                        {obj.likePostStatus && obj.likePostStatus===true ?
                             <button value="Post" name={index} className="dislikeBtn" onClick={dislikeFun} id={obj.id}><i className="far fa-thumbs-down"></i> Liked</button>
                             : <button value="Post" name={index} className="likeBtn" onClick={likeFun} id={obj.id}><i className="far fa-thumbs-up"></i> Like</button>
                         }
@@ -184,7 +184,7 @@ const DefaultPage = () => {
                                 return (
                                     <div className="commentRow" key={i}>
                                         <div style={{ "display": "flex", "padding": "0 5px 5px 5px" }}>
-                                            <img src={proxy + ele.profile_pic} height={32} />
+                                            <img src={proxy + ele.profile_pic} height={32} alt="..."/>
                                             <div>
                                             <p style={{ "marginLeft": "5px" }}><b>{ele.fullname}</b></p>
                                             <p style={{ "fontSize":"11px", "color":"#88898a", "marginLeft": "5px", "lineHeight": "18px"}}>{formatDate(new Date(ele.createdAt))} </p>
@@ -221,7 +221,7 @@ const DefaultPage = () => {
                     <div className="section1">
                         <img src={proxy+"/images/Banner.jpg"} width="100%" alt="Banner" />
                         <div className="section11">
-                            <img src={proxy + pageData.logo} width="160px" className="pageLogo" />
+                            <img src={proxy + pageData.logo} width="160px" className="pageLogo" alt="..."/>
                             <div style={{ "marginLeft": "190px" }}><h1>{pageData.name}</h1>
                                 <button>Follow</button>
                             </div>
@@ -248,9 +248,9 @@ const DefaultPage = () => {
                     {allPostsWrapper}
                 </div>
                 : ""}
-            {viewType == "Admin"
+            {viewType === "Admin"
                 ? adminData() :
-                viewType == "User" ? userData() :
+                viewType === "User" ? userData() :
                     viewType != null ? <h1>Page Not Found</h1> : ""}
             <Footer />
         </>

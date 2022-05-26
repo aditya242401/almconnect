@@ -25,7 +25,7 @@ function AddEducation() {
         } else {
             navigate("/Login");
         }
-    },[]);
+    },[navigate]);
 
     const handleInput = (e)=>{
         const {name,value} = e.target;

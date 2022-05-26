@@ -24,7 +24,7 @@ function EditProfile() {
         } else {
             navigate("/Login");
         }
-    },[]);
+    },[navigate]);
 
     const handleEdit = (e)=>{
         let name = e.target.id;

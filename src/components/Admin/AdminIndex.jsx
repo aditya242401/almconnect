@@ -14,7 +14,7 @@ const AdminIndex = () => {
         if(localStorage.getItem("adminloginid")){
             navigate("/Admin/Home");
         }
-    }, []);
+    }, [navigate]);
 
     const submit = ()=>{
         Axios.post("http://localhost:3001/adminlogin",{username:username,password:password}).then((response)=>{
@@ -34,7 +34,7 @@ const AdminIndex = () => {
                     <h1>ADMIN LOGIN</h1>
                 </div>
                 <div className='boxbody'>
-                    <center><img src={user} width="50%" className="imgUser" /></center>
+                    <center><img src={user} width="50%" className="imgUser" alt="..."/></center>
                     <p className='dangerMsg'>{msg}</p>
                     <input type="text" className='text-input' placeholder='Username' onChange={(e)=>{setUsername(e.target.value)}} required/>
                     <input type="password" className='text-input' placeholder='Password' onChange={(e)=>{setPassword(e.target.value)}} required/>

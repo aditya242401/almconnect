@@ -36,7 +36,8 @@ const Messages = () => {
         } else {
             navigate("/Login");
         }
-    }, [messages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [messages, navigate, param.id]);
 
     const scrollToTop = () => {
         if (scrollStatus <= 2) {
@@ -58,7 +59,7 @@ const Messages = () => {
     const getMessages = (id, loginid) => {
         Axios.get(proxy + "/getMessages", { params: { id, loginid } }).then(response => {
             if (response.data.length > 0) {
-                if (messages && messages.length != response.data.length) {
+                if (messages && messages.length !== response.data.length) {
                     setScrollStatus(1)
                 }
                 setMessages(response.data)
@@ -103,7 +104,7 @@ const Messages = () => {
                         {param.id ?
                             <>
                                 <div className='boxHeader'>
-                                    <Link to={"/Profile/" + friendinfo.id}><img src={proxy + friendinfo.profile_pic} width="40px" style={{ background: "white" }} /></Link>
+                                    <Link to={"/Profile/" + friendinfo.id}><img src={proxy + friendinfo.profile_pic} width="40px" style={{ background: "white" }} alt="..."/></Link>
                                     <div style={{ marginLeft: "10px" }}>
                                         <Link to={"/Profile/" + friendinfo.id}><h3>{friendinfo.fullname}</h3></Link>
                                         <p>Online</p>

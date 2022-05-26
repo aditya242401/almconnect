@@ -8,16 +8,16 @@ import {proxy} from '../../package.json';
 
 const Pages = () => {
     const navigate = useNavigate();
-    const [userInfo,setUserinfo] = useState({});
+    // const [userInfo,setUserinfo] = useState({});
     const [userPages, setUserPages] = useState(null);
 
     useEffect(()=>{
         if(localStorage.getItem("userId")){
             let loginid = localStorage.getItem("userId");
             // Set Login Data
-            Axios.get( proxy+"/getDataById",{ params: {loginid:loginid} }).then((response)=>{
-                setUserinfo(response.data[0]);
-            });
+            // Axios.get( proxy+"/getDataById",{ params: {loginid:loginid} }).then((response)=>{
+            //     setUserinfo(response.data[0]);
+            // });
             // // 
             Axios.get( proxy+"/getPages",{ params: {loginid:loginid} }).then((response)=>{
                 if(response.data[0]){
@@ -29,7 +29,7 @@ const Pages = () => {
         } else {
             navigate("/Login");
         }
-    },[]);
+    },[navigate]);
     return (
         <>
             <Header/>
@@ -43,7 +43,7 @@ const Pages = () => {
                         (userPages.map((ele)=>{
                             return (
                                 <div className="pagesRow">
-                                    <img src={ proxy+ele.logo} height="90px"/>
+                                    <img src={ proxy+ele.logo} height="90px" alt="..."/>
                                     <div style={{"marginLeft":"10px"}}>
                                         <h4><Link to={'/Page/'+ele.id}>{ele.name}</Link></h4>
                                         <p>{ele.type}</p>

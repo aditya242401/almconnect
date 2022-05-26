@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Header from './includes/Header';
 import Footer from './includes/Footer';
@@ -15,6 +15,7 @@ const Notifications = () => {
 
     const getPostNotifications = (data) => {
         let tempData = {}
+        // eslint-disable-next-line array-callback-return
         data.map(ele => {
             if (ele.noti_text === "NewPost" ) {
                 Axios.get( proxy+"/getUserFollowStatus", { params: { user1: localStorage.getItem("userId"), user2: ele.userid_from } }).then((response) => {
@@ -39,14 +40,15 @@ const Notifications = () => {
         setNotiPostData(tempData);
     }
 
-    const getNotifications = () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getNotifications = useCallback(() => {
         Axios.get( proxy+"/getNotifications", { params: { loginid: localStorage.getItem("userId") } }).then((response) => {
             if (response.data.length > 0) {
                 getPostNotifications(response.data)
                 setNotiData(response.data);
             }
         });
-    }
+    })
 
     useEffect(() => {
         if (localStorage.getItem("userId")) {
@@ -59,7 +61,7 @@ const Notifications = () => {
         return () => {
             
         }
-    }, [flag]);
+    }, [flag, getNotifications, navigate]);
 
     // Function For Format The Date
     const formatDate = (date) => {
@@ -100,7 +102,7 @@ const Notifications = () => {
                 <>
                     <div className='divUnread'>
                         <div style={{ "display": "flex" }}>
-                            <img src={ proxy+obj.profile_pic} height={35} />
+                            <img src={ proxy+obj.profile_pic} height={35} alt="..."/>
                             <div style={{ "marginLeft": "5px" }}>
                                 <p><Link style={{ "color": "blue" }} to={"/Profile/" + obj.userid_from}><b>{obj.fullname}</b></Link> Requested To Connect With You. </p>
                                 <p>{formatDate(new Date(obj.datetime))}</p></div>
@@ -115,7 +117,7 @@ const Notifications = () => {
                 <>
                     <div className='divRead'>
                         <div style={{ "display": "flex" }}>
-                            <img src={ proxy+obj.profile_pic} height={35} />
+                            <img src={ proxy+obj.profile_pic} height={35} alt="..."/>
                             <div style={{ "marginLeft": "5px" }}>
                                 <p><Link style={{ "color": "blue" }} to={"/Profile/" + obj.userid_from}><b>{obj.fullname}</b></Link> Requested To Connect With You. </p>
                                 <p>{formatDate(new Date(obj.datetime))}</p></div>
@@ -124,13 +126,13 @@ const Notifications = () => {
                     </div>
                 </>
             )
-        } else if (obj.noti_text === "NewPost" && obj.status === "Unread" && localStorage.getItem("userId") != obj.userid_from) {
-            if (notiPostData[obj.id] && notiPostData[obj.id] == true) {
+        } else if (obj.noti_text === "NewPost" && obj.status === "Unread" && localStorage.getItem("userId") !== obj.userid_from) {
+            if (notiPostData[obj.id] && notiPostData[obj.id] === true) {
                 return (
                     <>
                         <div className='divUnread'>
                             <div style={{ "display": "flex" }}>
-                                <img src={ proxy+obj.profile_pic} height={35} />
+                                <img src={ proxy+obj.profile_pic} height={35} alt="..."/>
                                 <div style={{ "marginLeft": "5px" }}>
                                     <p><Link style={{ "color": "blue" }} to={"/Profile/" + obj.userid_from}><b>{obj.fullname}</b></Link> Update his new Post. </p>
                                     <p>{formatDate(new Date(obj.datetime))}</p></div>
@@ -140,13 +142,13 @@ const Notifications = () => {
                     </>
                 )
             }
-        } else if (obj.noti_text === "NewPost" && obj.status === "Read" && localStorage.getItem("userId") != obj.userid_from) {
-            if (notiPostData[obj.id] && notiPostData[obj.id] == true) {
+        } else if (obj.noti_text === "NewPost" && obj.status === "Read" && localStorage.getItem("userId") !== obj.userid_from) {
+            if (notiPostData[obj.id] && notiPostData[obj.id] === true) {
                 return (
                     <>
                         <div className='divRead'>
                             <div style={{ "display": "flex" }}>
-                                <img src={ proxy+obj.profile_pic} height={35} />
+                                <img src={ proxy+obj.profile_pic} height={35} alt="..."/>
                                 <div style={{ "marginLeft": "5px" }}>
                                     <p><Link style={{ "color": "blue" }} to={"/Profile/" + obj.userid_from}><b>{obj.fullname}</b></Link> Update his new Post. </p>
                                     <p>{formatDate(new Date(obj.datetime))}</p></div>

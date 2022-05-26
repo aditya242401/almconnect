@@ -35,7 +35,7 @@ const Login = () => {
         if(localStorage.getItem("userId")){
             navigate("/Home");
         }
-    },[])
+    },[navigate])
 
     return (
         <>
@@ -48,7 +48,7 @@ const Login = () => {
                 <form method='post' action='' onSubmit={login}>
                     <div className="footerBoxLogin">
                         <p className="dangerMsg">{loginStatus}</p>
-                        <center><img src={user} width="40%" className="imgUser"/></center>
+                        <center><img src={user} width="40%" className="imgUser" alt="..."/></center>
                         <input type="email" className="login-input" placeholder="Email" onChange={(e)=>{ setEmail(e.target.value); }} required autoFocus/>
                         <input type="password" className="login-input" placeholder="Password" onChange={(e)=>{ setPassword(e.target.value); }} required/>
                         <p className="mt-1"><input type="checkbox"/> Remember Me!</p>

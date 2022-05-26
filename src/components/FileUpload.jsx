@@ -9,7 +9,7 @@ import {proxy} from '../../package.json';
 
 const UploadProfilePicture = () => {
   const navigate = useNavigate();
-  const [userInfo, setUserinfo] = useState({});
+  const [, setUserinfo] = useState({});
 
   useEffect(() => {
     if (localStorage.getItem("userId")) {
@@ -21,7 +21,7 @@ const UploadProfilePicture = () => {
     } else {
       navigate("/Login");
     }
-  }, []);
+  }, [navigate]);
 
 
   const [src, setFile] = useState(null);
