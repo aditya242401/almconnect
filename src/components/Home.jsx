@@ -243,6 +243,8 @@ const Home = () => {
                 </div>
                 <div className="sectionRightPannel">
                     <center><h1><i className="far fa-newspaper"></i> News & Event</h1></center><hr />
+                    <br/>
+                    <h4 className="ml-2">No News Available Now...</h4>
                 </div>
                 <div style={{ "clear": "both" }}></div>
             </div>

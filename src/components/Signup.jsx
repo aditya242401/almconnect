@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {proxy} from '../../package.json';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -20,12 +21,15 @@ const Signup = () => {
     const [aboutu, setAboutu] = useState('');
     const [hobbies, setHobbies] = useState('');
 
+    const [loader, setLoader] = useState(false);
+
     const handleDob = (e) => {
         setGender(e.target.value);
     }
 
     const register = (e) => {
         e.preventDefault();
+        setLoader(true);
         if (password === rePassword) {
             Axios.post( proxy+"/register", {
                 loginid: Math.floor(Date.now() * Math.random()),
@@ -41,8 +45,11 @@ const Signup = () => {
                 hobbies: hobbies
             }).then((response) => {
                 if (response.data.message) {
+                    setLoader(false);
                     toast.success("Account Created Successfully!!!");
-                    navigate("/Login");
+                    setInterval(() => {
+                        navigate("/Login");
+                    }, 5000);
                 }
             });
         } else {
@@ -53,6 +60,12 @@ const Signup = () => {
     return (
         <>
             <Header />
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loader}
+                >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <div className="wrapperSignup">
                 <div className="boxSignup">
                     <div className="headerBoxSignup">

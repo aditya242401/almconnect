@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from './includes/Footer'
 import Header from './includes/Header'
 import { proxy } from "../../package.json";
+import {ToastContainer, toast} from 'react-toastify';
 
 function AddEducation() {
     const navigate = useNavigate();
@@ -40,12 +41,14 @@ function AddEducation() {
     const addEducationFun = (e)=>{
         e.preventDefault();
         Axios.post(proxy+"/addEducation",{userid:userInfo.id,educationDetail: educationDetail}).then(response=>{
-            console.log(response);
+            // console.log(response);
+            toast.success("School Added Successfully.");
         });
     }
     return (
         <>
             <Header/>   
+            <ToastContainer/>
             <div className="add_education m-5">
                 <Link to="/EditProfile"><i className='fas fa-arrow-left'></i> Back</Link>
                 <h1>Add Education :- </h1>
@@ -53,6 +56,7 @@ function AddEducation() {
                     <p><label>School* : </label>
                     {/* <input type="text" name="school" onChange={handleInput}/> */}
                     <select name='school' onChange={handleInput}>
+                        <option hidden>Select School</option>
                         {
                             colleges.map((ele,index)=>{
                                 return (
