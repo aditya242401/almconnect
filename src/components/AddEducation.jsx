@@ -32,7 +32,8 @@ function AddEducation() {
         } else {
             navigate("/Login");
         }
-    },[navigate]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     const handleInput = (e)=>{
         const {name,value} = e.target;

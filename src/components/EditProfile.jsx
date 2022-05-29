@@ -24,7 +24,8 @@ function EditProfile() {
         } else {
             navigate("/Login");
         }
-    },[navigate]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     const handleEdit = (e)=>{
         let name = e.target.id;

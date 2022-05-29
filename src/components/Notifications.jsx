@@ -61,7 +61,8 @@ const Notifications = () => {
         return () => {
             
         }
-    }, [flag, getNotifications, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [flag]);
 
     // Function For Format The Date
     const formatDate = (date) => {

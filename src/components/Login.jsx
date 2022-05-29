@@ -41,7 +41,8 @@ const Login = () => {
         if(localStorage.getItem("userId")){
             navigate("/Home");
         }
-    },[navigate])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return (
         <>

@@ -35,7 +35,8 @@ const Home = () => {
         } else {
             navigate("/Login");
         }
-    }, [navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Function For Format The Date
     const formatDate = (date) => {

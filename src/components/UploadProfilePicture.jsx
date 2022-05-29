@@ -22,7 +22,8 @@ const UploadProfilePicture = () => {
     } else {
       navigate("/Login");
     }
-  }, [navigate]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const [src, setFile] = useState(null);

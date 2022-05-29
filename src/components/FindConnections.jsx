@@ -17,7 +17,8 @@ const FindConnections = () => {
         } else {
             navigate("/Login");
         }
-    }, [navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const submitSearch = (e) => {
         let s = e.target.value;

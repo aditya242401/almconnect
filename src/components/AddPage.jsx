@@ -23,7 +23,8 @@ const AddPage = () => {
         } else {
             navigate("/Login");
         }
-    }, [navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const addPageFun = (e) => {
         e.preventDefault()

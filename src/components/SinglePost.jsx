@@ -29,6 +29,7 @@ const SinglePost = () => {
         if (params.postid) {
             getPost();
         }
+    
     }, [getPost, params.postid]);
 
     const submitComment = (e) => {

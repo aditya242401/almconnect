@@ -77,7 +77,8 @@ const Profile = () => {
             setUserFollowing(response.data);
             setLoader(false);
         });
-    }, [navigate, param.loginid]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [param.loginid]);
 
     const followFun = () => {
         const user1 = localStorage.getItem("userId");
