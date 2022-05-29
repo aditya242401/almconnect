@@ -20,10 +20,13 @@ import AddPage from './components/AddPage';
 import DefaultPage from './components/DefaultPage';
 import SinglePost from './components/SinglePost';
 import Messages from './components/MessageComponent/Messages';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Routes>
         {/* User Module */}
         <Route path='/' element={<Index/>} exact></Route>

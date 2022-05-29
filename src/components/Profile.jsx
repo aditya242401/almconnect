@@ -7,6 +7,7 @@ import Header from "./includes/Header";
 import "./styles/Profile.css";
 import {proxy} from '../../package.json';
 import formatDate from './innerComponents/myFun';
+import { Backdrop, CircularProgress } from '@mui/material'
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -18,16 +19,20 @@ const Profile = () => {
     const [userFollowing, setUserFollowing] = useState([]);
     const [postLimit] = useState(10);
 
+    const [loader, setLoader] = useState(false);
+
     const [followBtnStatus, setFollowBtnStatus] = useState('');
 
     const getAllUserPosts = (mid) =>{
         Axios.get( proxy+"/getUserPosts", { params: { author: mid } }).then((response) => {
             setUserPosts(response.data);
+            setLoader(false);
         });
     }
 
     useEffect(() => {
         let mid;
+        setLoader(true);
         if (localStorage.getItem("userId")) {
             let loginid = param.loginid ? param.loginid : localStorage.getItem("userId");
             mid = param.loginid ? param.loginid : localStorage.getItem("userId");
@@ -41,6 +46,8 @@ const Profile = () => {
                 Axios.get( proxy+"/getUserFollowStatus", { params: { user1: localStorage.getItem("userId"), user2: mid } }).then((response) => {
                     if (response.data.length > 0)
                         setFollowBtnStatus(response.data[0].status);
+                    
+                    setLoader(false);
                 })
             }
         } else {
@@ -51,6 +58,7 @@ const Profile = () => {
                 const loginid = param.loginid;
                 Axios.get( proxy+"/getDataById", { params: { loginid: loginid } }).then((response) => {
                     setUserinfo(response.data[0]);
+                    setLoader(false);
                 });
             } else {
                 navigate("/Login");
@@ -58,13 +66,16 @@ const Profile = () => {
         }
         Axios.get( proxy+"/getUserEducations", { params: { loginid: mid } }).then((response) => {
             setUserEducations(response.data);
+            setLoader(false);
         });
         getAllUserPosts(mid);
         Axios.get( proxy+"/getFollowers", { params: { user1: mid } }).then((response) => {
             setUserFollowers(response.data);
+            setLoader(false);
         });
         Axios.get( proxy+"/getFollowing", { params: { user1: mid } }).then((response) => {
             setUserFollowing(response.data);
+            setLoader(false);
         });
     }, [navigate, param.loginid]);
 
@@ -129,6 +140,7 @@ const Profile = () => {
 
     const submitComment = (e) => {
         e.preventDefault();
+        setLoader(true);
         const commentText = e.target[0].value;
         const postId = e.target[1].value;
 
@@ -136,17 +148,17 @@ const Profile = () => {
             if (response.data.affectedRows && response.data.affectedRows === 1) {
                 e.target[0].value = "";
                 getAllUserPosts(userinfo.id)
+                setLoader(false);
             }
         });
     }
     
 
-    const allPostsWrapper = userPosts.slice(0, postLimit).map((obj,index) => {
+    const allPostsWrapper = userPosts.length>0 && userPosts.slice(0, postLimit).map((obj,index) => {
         const mDate = new Date(obj.createdat);
-
         return (
             <div className="postMain" key={obj.id}>
-                <div className="postHeader">
+                <div className="postHeader">gqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqw33333333333333333333333333333333333
                     <Link to={"/Profile/" + obj.loginid}>
                         <img src={ proxy + obj.profile_pic} height={40} alt="POST"/>
                     </Link>
@@ -218,6 +230,12 @@ const Profile = () => {
     return (
         <>
             <Header />
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loader}
+                >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <div className="profile">
                 <div className="section1">
                     <div className="section11">

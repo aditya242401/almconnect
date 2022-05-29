@@ -6,27 +6,33 @@ import Header from './includes/Header';
 import Footer from './includes/Footer';
 import user from "../images/user.png";
 import {proxy} from '../../package.json';
+import { Backdrop, CircularProgress } from '@mui/material';
+import {toast} from 'react-toastify';
 
 const Login = () => {
     const navigate = useNavigate();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [loginStatus,setLoginStatus] = useState('');
+    const [loader, setLoader] = useState(false);
 
     Axios.defaults.withCredentials = true;
 
     const login = (e) => {
         e.preventDefault();
+        setLoader(true);
         
         Axios.post( proxy+"/login", {
             email:email,
             password:password
         }).then((response)=>{
             if(response.data.message){
-                setLoginStatus("Wrong Email or Password");
+                toast.error("Username or password is Incorrect!!!")
+                setLoader(false);
             } else {
                 localStorage.setItem("userId",response.data[0].id);
-                navigate("/Home");
+                setInterval(() => {
+                    navigate("/Home");
+                }, 3000);
             }
         });
     };
@@ -40,6 +46,12 @@ const Login = () => {
     return (
         <>
         <Header />
+        <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={loader}
+            >
+            <CircularProgress color="inherit" />
+        </Backdrop>
         <div className="wrapperLogin">
             <div className="boxLogin" style={{"width": "450px"}}>
                 <div className="headerBoxLogin">
@@ -47,7 +59,6 @@ const Login = () => {
                 </div>
                 <form method='post' action='' onSubmit={login}>
                     <div className="footerBoxLogin">
-                        <p className="dangerMsg">{loginStatus}</p>
                         <center><img src={user} width="40%" className="imgUser" alt="..."/></center>
                         <input type="email" className="login-input" placeholder="Email" onChange={(e)=>{ setEmail(e.target.value); }} required autoFocus/>
                         <input type="password" className="login-input" placeholder="Password" onChange={(e)=>{ setPassword(e.target.value); }} required/>

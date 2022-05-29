@@ -6,6 +6,8 @@ import Footer from "./includes/Footer";
 import Header from "./includes/Header";
 import "./styles/Home.css";
 import { proxy } from "../../package.json";
+import { CircularProgress, Backdrop } from '@mui/material';
+import { toast } from "react-toastify";
 
 const Home = () => {
 
@@ -19,9 +21,11 @@ const Home = () => {
     // For Showing the post By Limit
     const [postLimit, setPostLimit] = useState(10);
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     // Use Effect
     useEffect(() => {
+        setLoading(true);
         if (localStorage.getItem("userId")) {
             const loginid = localStorage.getItem("userId");
             Axios.get(proxy+"/getDataById", { params: { loginid: loginid } }).then((response) => {
@@ -54,6 +58,7 @@ const Home = () => {
     };
 
     const submitPost = () => {
+        setLoading(true);
         const formData = new FormData();
         formData.append("file", file);
         formData.append("filename", fileName);
@@ -65,16 +70,22 @@ const Home = () => {
             if (response.status === 200) {
                 document.getElementById("postMsg1").innerHTML = response.data.message;
                 document.getElementById("postTextarea").value = "";
-                getAllPosts(userinfo.id)
-            } else
+                getAllPosts(userinfo.id);
+            } else {
+                setLoading(false);
                 document.getElementById("postMsg2").innerHTML = response.data.message;
+            }
         });
     }
 
     const getAllPosts = (loginid) => {
         Axios.get(proxy + "/getAllPosts", { params: { loginid: loginid } }).then((response) => {
             setPosts(response.data);
+            setLoading(false);
+        }).catch((error)=>{
+            toast.error("Some Error Occured!!!!");
         })
+        
     }
 
     const submitComment = (e) => {
@@ -212,6 +223,12 @@ const Home = () => {
     return (
         <>
             <Header />
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loading}
+                >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <div className="homepage">
                 <div className="sectionLeft">
                     <center><h3 className="m-1">🙏 Welcome {userinfo.fullname}</h3>
