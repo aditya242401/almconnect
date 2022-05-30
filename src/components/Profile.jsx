@@ -78,7 +78,7 @@ const Profile = () => {
             setLoader(false);
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [param.loginid]);
+    }, []);
 
     const followFun = () => {
         const user1 = localStorage.getItem("userId");
@@ -159,7 +159,7 @@ const Profile = () => {
         const mDate = new Date(obj.createdat);
         return (
             <div className="postMain" key={obj.id}>
-                <div className="postHeader">gqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqw33333333333333333333333333333333333
+                <div className="postHeader">
                     <Link to={"/Profile/" + obj.loginid}>
                         <img src={ proxy + obj.profile_pic} height={40} alt="POST"/>
                     </Link>

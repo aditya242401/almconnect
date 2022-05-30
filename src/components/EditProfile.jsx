@@ -4,14 +4,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from './includes/Footer'
 import Header from './includes/Header'
 import {proxy} from '../../package.json';
+import { CircularProgress, Backdrop } from '@mui/material';
+import { toast } from 'react-toastify';
 
 function EditProfile() {
     const navigate = useNavigate();
-    const [userInfo,setUserinfo] = useState({});
+    const [userInfo,setUserinfo] = useState({fullname: '', aboutu: '', hobbies: ''});
     const [userEducations,setUserEducations] = useState([]);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         if(localStorage.getItem("userId")){
+            setLoading(true);
             let loginid = localStorage.getItem("userId");
             // Set Login Data
             Axios.get( proxy+"/getDataById",{ params: {loginid:loginid} }).then((response)=>{
@@ -20,6 +25,7 @@ function EditProfile() {
             Axios.get( proxy+"/getUserEducations",{ params: {loginid:loginid} }).then(response=>{
                 if(response.data.length>0)
                     setUserEducations(response.data);
+                setLoading(false);
             });
         } else {
             navigate("/Login");
@@ -37,15 +43,26 @@ function EditProfile() {
             }
         });
     }
-    const editProfileFun = (e)=>{
+    const editProfileFun = async (e)=>{
         e.preventDefault();
-
-        alert("Not Running");
+        setLoading(true);
+        let loginid = localStorage.getItem("userId");
+        const response = await Axios.post(proxy+"/uploadProfileDetails", {fullname: userInfo.fullname,aboutu: userInfo.aboutu,hobbies:userInfo.hobbies, loginid: loginid});
+        if(response.status===200){
+            toast.success(response.data.message);
+        }
+        setLoading(false);
     }
 
     return (
         <>
             <Header/>
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loading}
+                >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <div className="edit-profile m-5">
                 <div className="box">
                     <div className='boxHeader mb-2'>

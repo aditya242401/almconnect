@@ -30,6 +30,7 @@ const Login = () => {
                 setLoader(false);
             } else {
                 localStorage.setItem("userId",response.data[0].id);
+                toast.success("Logged in Successfully.", {autoClose: 3000})
                 setInterval(() => {
                     navigate("/Home");
                 }, 3000);

@@ -22,12 +22,12 @@ function AddEducation() {
             // Set Login Data
             Axios.get(proxy+"/getDataById",{ params: {loginid:loginid} }).then((response)=>{
                 setUserinfo(response.data[0]);
-                setLoader(true);
+                setLoader(false);
             });
             // 
             Axios.get(proxy+"/getcolleges").then((response)=>{
                 setColleges(response.data);
-                setLoader(true);
+                setLoader(false);
             });
         } else {
             navigate("/Login");
@@ -47,10 +47,11 @@ function AddEducation() {
     }
     const addEducationFun = (e)=>{
         e.preventDefault();
-        setLoader(false);
+        setLoader(true);
         Axios.post(proxy+"/addEducation",{userid:userInfo.id,educationDetail: educationDetail}).then(response=>{
             toast.success("School Added Successfully.");
-            setLoader(true);
+            setLoader(false);
+            navigate("/EditProfile")
         });
     }
     return (
@@ -87,6 +88,7 @@ function AddEducation() {
                         <textarea name="description" rows="4" onChange={handleInput}></textarea>
                     </p>
                     <input type="submit" value="Add Education" />
+                    
                 </form>
             </div>
             <Footer/>

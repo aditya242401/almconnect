@@ -34,3 +34,16 @@
     border: 2px solid black;
     background-color: white;
 }
+
+.findconnections .searchBtn{
+    background-color: cadetblue;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+.findconnections .filter{
+    background-color: sienna;
+    color: white;
+    padding: 1px 20px;
+    margin-right: 20px;
+}
