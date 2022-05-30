@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 18, 2022 at 06:01 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2022 at 08:04 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -98,7 +97,12 @@ INSERT INTO `comments` (`id`, `commentText`, `postId`, `commentedBy`, `createdAt
 (8, 'This is a Very Intrusting Team i love it &hearts;', 5, 128329650311, '2022-03-08 16:37:38', NULL),
 (9, 'now i am commenting .....', 6, 826445991469, '2022-03-09 05:42:03', NULL),
 (10, 'Ye Website To Bahut Achi Hai', 8, 835558995372, '2022-03-09 15:59:00', NULL),
-(11, 'This is very important information....', 14, 826445991469, '2022-03-24 16:22:38', NULL);
+(11, 'This is very important information....', 14, 826445991469, '2022-03-24 16:22:38', NULL),
+(12, 'Wow Great Thought !!!! ', 19, 826445991469, '2022-05-26 17:20:51', NULL),
+(13, 'Koi Hai', 2, 826445991469, '2022-05-26 17:42:21', NULL),
+(14, 'Ye To Bahut Acha Hai', 8, 1509989957783, '2022-05-27 09:15:07', NULL),
+(15, 'Hello', 20, 826445991469, '2022-05-27 09:46:52', NULL),
+(16, 'This is Awesome...', 20, 826445991469, '2022-05-27 10:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,11 @@ INSERT INTO `connections` (`id`, `user1`, `user2`, `status`, `createdat`) VALUES
 (3, 826445991469, 821410558924, 'Accepted', '2022-03-06 06:46:03'),
 (4, 826445991469, 128329650311, 'Accepted', '2022-03-06 06:46:25'),
 (5, 128329650311, 821410558924, 'Accepted', '2022-03-08 16:53:31'),
-(6, 1083346748089, 826445991469, 'Accepted', '2022-03-14 08:22:05');
+(6, 1083346748089, 826445991469, 'Accepted', '2022-03-14 08:22:05'),
+(7, 826445991469, 1107460537996, 'Accepted', '2022-05-27 08:50:16'),
+(8, 1107460537996, 826445991469, 'Accepted', '2022-05-27 08:50:36'),
+(9, 1509989957783, 826445991469, 'Accepted', '2022-05-27 08:56:11'),
+(10, 826445991469, 1509989957783, 'Accepted', '2022-05-27 09:18:39');
 
 -- --------------------------------------------------------
 
@@ -165,7 +173,6 @@ INSERT INTO `likes` (`id`, `type`, `typeId`, `likedById`, `createdAt`) VALUES
 (8, 'Comment', 5, 821410558924, '2022-03-08 13:08:04'),
 (10, 'Comment', 7, 821410558924, '2022-03-08 13:09:06'),
 (11, 'Comment', 7, 826445991469, '2022-03-08 13:09:22'),
-(15, 'Post', 2, 826445991469, '2022-03-08 13:10:24'),
 (18, 'Comment', 4, 826445991469, '2022-03-08 16:29:07'),
 (19, 'Post', 5, 128329650311, '2022-03-08 16:37:01'),
 (20, 'Comment', 8, 128329650311, '2022-03-08 16:37:48'),
@@ -174,9 +181,7 @@ INSERT INTO `likes` (`id`, `type`, `typeId`, `likedById`, `createdAt`) VALUES
 (27, 'Comment', 3, 826445991469, '2022-03-09 05:48:32'),
 (28, 'Comment', 2, 826445991469, '2022-03-09 05:48:58'),
 (29, 'Post', 7, 835558995372, '2022-03-09 08:18:42'),
-(37, 'Post', 8, 826445991469, '2022-03-09 15:08:55'),
 (38, 'Post', 7, 826445991469, '2022-03-09 15:08:58'),
-(41, 'Post', 4, 826445991469, '2022-03-09 15:09:08'),
 (42, 'Post', 3, 826445991469, '2022-03-09 15:09:11'),
 (43, 'Post', 1, 826445991469, '2022-03-09 15:09:14'),
 (44, 'Post', 6, 826445991469, '2022-03-09 15:09:19'),
@@ -191,7 +196,27 @@ INSERT INTO `likes` (`id`, `type`, `typeId`, `likedById`, `createdAt`) VALUES
 (53, 'Post', 14, 826445991469, '2022-03-14 08:36:00'),
 (54, 'Post', 18, 835558995372, '2022-03-15 08:02:43'),
 (55, 'Post', 18, 826445991469, '2022-03-21 07:49:42'),
-(56, 'Comment', 11, 826445991469, '2022-03-24 16:22:40');
+(56, 'Comment', 11, 826445991469, '2022-03-24 16:22:40'),
+(57, 'Post', 19, 821410558924, '2022-05-26 17:19:23'),
+(58, 'Post', 19, 826445991469, '2022-05-26 17:20:41'),
+(59, 'Comment', 12, 826445991469, '2022-05-26 17:20:53'),
+(61, 'Comment', 10, 826445991469, '2022-05-26 17:41:55'),
+(62, 'Post', 8, 1107460537996, '2022-05-27 08:55:55'),
+(63, 'Post', 4, 1509989957783, '2022-05-27 09:14:49'),
+(64, 'Post', 2, 1509989957783, '2022-05-27 09:14:53'),
+(65, 'Post', 8, 1509989957783, '2022-05-27 09:14:56'),
+(66, 'Comment', 14, 1509989957783, '2022-05-27 09:15:09'),
+(67, 'Post', 20, 1509989957783, '2022-05-27 09:15:39'),
+(68, 'Post', 20, 826445991469, '2022-05-27 09:16:58'),
+(69, 'Comment', 15, 826445991469, '2022-05-27 09:46:54'),
+(70, 'Post', 6, 821410558924, '2022-05-27 09:55:31'),
+(71, 'Comment', 16, 826445991469, '2022-05-27 10:16:58'),
+(72, 'Post', 8, 826445991469, '2022-05-27 17:47:51'),
+(73, 'Post', 4, 826445991469, '2022-05-27 17:47:55'),
+(74, 'Post', 2, 826445991469, '2022-05-27 17:47:59'),
+(75, 'Comment', 13, 826445991469, '2022-05-27 17:48:03'),
+(76, 'Comment', 14, 826445991469, '2022-05-27 17:49:47'),
+(77, 'Post', 21, 128329650311, '2022-05-29 21:28:20');
 
 -- --------------------------------------------------------
 
@@ -252,15 +277,16 @@ INSERT INTO `messages` (`id`, `sender`, `reciever`, `message`, `media`, `created
 (37, 128329650311, 826445991469, 'hello', NULL, '2022-04-13 09:12:18'),
 (38, 826445991469, 128329650311, 'Hello', NULL, '2022-04-13 09:15:05'),
 (39, 826445991469, 128329650311, 'Hello 123', NULL, '2022-04-13 09:15:35'),
-(40, 826445991469, 128329650311, 'Aur Kaise Ho', NULL, '2022-04-13 09:15:59');
+(40, 826445991469, 128329650311, 'Aur Kaise Ho', NULL, '2022-04-13 09:15:59'),
+(41, 826445991469, 1509989957783, 'Hiii', NULL, '2022-05-27 09:18:43');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messageUsers`
+-- Table structure for table `messageusers`
 --
 
-CREATE TABLE `messageUsers` (
+CREATE TABLE `messageusers` (
   `id` bigint(20) NOT NULL,
   `sender` bigint(20) NOT NULL,
   `reciever` bigint(20) NOT NULL,
@@ -268,14 +294,15 @@ CREATE TABLE `messageUsers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `messageUsers`
+-- Dumping data for table `messageusers`
 --
 
-INSERT INTO `messageUsers` (`id`, `sender`, `reciever`, `lastUpdate`) VALUES
+INSERT INTO `messageusers` (`id`, `sender`, `reciever`, `lastUpdate`) VALUES
 (1, 826445991469, 835558995372, '2022-03-24 16:12:33'),
 (2, 821410558924, 826445991469, '2022-03-21 10:24:49'),
 (3, 826445991469, 128329650311, '2022-04-13 09:15:59'),
-(4, 826445991469, 1160415602329, '2022-03-24 16:13:01');
+(4, 826445991469, 1160415602329, '2022-03-24 16:13:01'),
+(5, 826445991469, 1509989957783, '2022-05-27 09:18:43');
 
 -- --------------------------------------------------------
 
@@ -305,7 +332,14 @@ INSERT INTO `notifications` (`id`, `noti_text`, `userid_from`, `userid_to`, `sta
 (14, 'FollowRequest', 1083346748089, 826445991469, 'Read', '2022-03-14 08:35:19'),
 (15, 'NewPost', 1083346748089, 14, 'Read', '2022-03-14 08:55:21'),
 (17, 'NewPost', 1493264725306, 17, 'Unread', '2022-03-15 07:16:09'),
-(18, 'NewPost', 2, 18, 'Unread', '2022-03-15 07:18:41');
+(18, 'NewPost', 2, 18, 'Unread', '2022-03-15 07:18:41'),
+(19, 'NewPost', 821410558924, 19, 'Read', '2022-05-26 17:21:07'),
+(20, 'FollowRequest', 826445991469, 1107460537996, 'Read', '2022-05-27 08:51:04'),
+(21, 'FollowRequest', 1107460537996, 826445991469, 'Read', '2022-05-27 08:50:54'),
+(22, 'FollowRequest', 1509989957783, 826445991469, 'Read', '2022-05-27 08:56:23'),
+(23, 'NewPost', 1509989957783, 20, 'Unread', '2022-05-27 09:15:37'),
+(24, 'FollowRequest', 826445991469, 1509989957783, 'Unread', '2022-05-27 09:18:39'),
+(25, 'NewPost', 128329650311, 21, 'Unread', '2022-05-29 21:28:18');
 
 -- --------------------------------------------------------
 
@@ -356,7 +390,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `posttext`, `postimg`, `authorType`, `author`, `createdat`, `updatedat`) VALUES
-(1, '[object Object]', '/users/821410558924/file-1639600680191.jpg', 'User', 821410558924, '2021-12-15 20:38:00', NULL),
+(1, '', '/users/821410558924/file-1639600680191.jpg', 'User', 821410558924, '2021-12-15 20:38:00', NULL),
 (2, 'Hello My name is Aditya Sharma.\r\nThis is the project for testing on 18-01-2022.', '', 'User', 826445991469, '2022-01-18 10:29:32', NULL),
 (3, 'Aditya Pandey is Here .....\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur amet minima optio pariatur non velit excepturi, veritatis similique nulla cum necessitatibus laboriosam eveniet quae voluptatem fugiat expedita ex blanditiis enim.', NULL, 'User', 835558995372, '2022-03-05 06:26:56', NULL),
 (4, '', '/users/826445991469/file-1646542320136.png', 'User', 826445991469, '2022-03-06 04:52:00', NULL),
@@ -366,7 +400,10 @@ INSERT INTO `posts` (`id`, `posttext`, `postimg`, `authorType`, `author`, `creat
 (8, 'वसा अर्थात चिकनाई शरीर को क्रियाशील बनाए रखने मे सहयोग करती है। वसा शरीर के लिए उपयोगी है, किंतु इसकी अधिकता हानिकारक भी हो सकती है। यह मांस तथा वनस्पति समूह दोनो प्रकार से प्राप्त होती है। इससे शरीर को दैनिक कार्यो के लिए शक्ति प्राप्त होती है। इसको शक्तिदायक ईंधन भी कहा जाता है। एक स्वस्थ व्यक्ति के लिए १०० ग्राम चिकनाई का प्रयोग करना अति आवश्यक माना जाता है। इसको पचाने में शरीर को कफ़ी समय लगता है। यह शरीर मे प्रोटीन की आवश्यकता को कम करने के लिए आवश्यक होती है। वसा का शरीर मे अत्यधिक मात्रा मे बढ जाना उचित नही होता है। यह संतुलित आहार द्वारा आवश्यक मात्रा मे ही शरीर को उपलब्ध कराई जानी चाहिए। अधिक मात्रा जानलेवा भी हो सकती है, यह ध्यान योग्य है। यह आमाशय की गतिशीलता मे कमी ला देती है तथा भूख कम कर देती है। इससे आमाशय की वृद्धि होती है। ', NULL, 'User', 826445991469, '2022-03-09 08:21:34', NULL),
 (14, 'Hello Guys My Name is Arpit Sharma and i am Sharing Some Information...\r\n\r\nग्लेशियर नेशनल पार्क अमेरिकी राष्ट्रीय उद्यान है, जो कि कनाडा-संयुक्त राज्य अमेरिका की सीमा पर स्थित है। उद्यान संयुक्त राज्य के उत्तर-पश्चिमी मोंटाना राज्य में स्थित है और कनाडा की ओर अल्बर्टा और ब्रिटिश कोलम्बिया प्रांतों से सटा हुआ है। उद्यान दस लाख एकड़ (4,000 किमी2) से अधिक क्षेत्र में फैला हुआ है और इसमें दो पर्वत श्रृंखला (रॉकी पर्वत की उप-श्रेणियाँ), 130 से अधिक नामित झीलें, 1,000 से अधिक विभिन्न पौधों की प्रजातियां और सैकड़ों वन्यजीवों की प्रजातियां शामिल हैं। इस विशाल प्राचीन पारिस्थितिकी तंत्र को जो कि 16,000 वर्ग मील (41,000 किमी2) में शामिल संरक्षित भूमि का भाग है, \"क्राउन ऑफ़ द कॉन्टिनेंट इकोसिस्टम\" के रूप में संदर्भित किया गया है', NULL, 'User', 1083346748089, '2022-03-14 08:22:49', NULL),
 (17, 'This is my first post  and i\'m very excited about this social app and  i\'m gonna use it on the daily basis.', NULL, 'User', 1493264725306, '2022-03-15 07:16:09', NULL),
-(18, '!! Something is better then nothing !!', NULL, 'Page', 2, '2022-03-15 07:18:41', NULL);
+(18, '!! Something is better then nothing !!', NULL, 'Page', 2, '2022-03-15 07:18:41', NULL),
+(19, 'Hey My name is Akhil and Today, I just heard about the last words of the great Sikander. In the last time he says to his commander that in the time of funeral you have to do my hands off of the funeral so the word see about you can not take anything from this world when you have to go.', '/users/821410558924/file-1653585557950.jpeg', 'User', 821410558924, '2022-05-26 17:19:17', NULL),
+(20, 'Hiii Guys', NULL, 'User', 1509989957783, '2022-05-27 09:15:37', NULL),
+(21, 'Hello Guys', NULL, 'User', 128329650311, '2022-05-29 21:28:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -395,14 +432,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `dob`, `gender`, `mobile`, `email`, `password`, `address`, `aboutu`, `hobbies`, `profile_pic`, `createdat`, `updatedat`) VALUES
-(128329650311, 'Prashant Thakur', '1999-12-19', 'Others', '9847563210', 'prashant@abc.com', 'prashant', 'Khatta Baghpat 250615', 'I am Project Trainee in Motherson Sumi.', 'Playing Cricket, Listening Music, Playing Chess', '/users/128329650311/file-1639758321032.jpg', '2021-12-17 16:20:14', '2021-12-17 16:25:21'),
+(128329650311, 'Prashant Thakur', '1999-12-19', 'Others', '9847563210', 'prashant@abc.com', 'prashant', 'Khatta Baghpat 250615', 'I am Project Trainee in Motherson Sumi.', 'Playing Cricket, Playing Chess', '/users/128329650311/file-1639758321032.jpg', '2021-12-17 16:20:14', '2021-12-17 16:25:21'),
+(537930161313, 'Alok Shankhdhar', '1990-02-01', 'Male', '1234567890', 'alok@abc.com', 'alok', 'Noida', 'I am a Engineer.', 'Cricket', '/images/Male.jpg', '2022-05-27 15:34:53', NULL),
 (821410558924, 'Akhil Kumar', '1996-04-07', 'Female', '8529637410', 'akhil@abc.com', 'akhil', 'Khatta, Prahladpur, Baghpath 250615', 'I am a Programmer Analyst Trainee at SassWorx.', 'Playing Cricket, Listening Music', '/users/821410558924/file-1639684453319.jpg', '2021-12-14 16:47:53', '0000-00-00 00:00:00'),
 (826445991469, 'Aditya Sharma', '2001-02-01', 'Male', '1234567890', 'aditya@abc.com', 'aditya', 'Powayan, Shahajahanpur', 'I am a Software Engineer.', 'Coding, Designing', '/users/826445991469/file-1646558687199.jpg', '2021-12-12 06:08:51', '2022-03-06 09:24:47'),
 (835558995372, 'Aditya Pandey', '1997-06-07', 'Male', '0129384756', 'pandey@abc.com', 'pandey', 'Renukoot', 'I am a Software Engineer.', 'Reading Books, Doing Workout', '/users/835558995372/file-1646572933912.jpg', '2021-12-12 08:03:02', '2022-03-06 13:22:13'),
-(992438823155, '', '', '', '', '', '', '', '', '', '/images/.jpg', '2022-03-15 06:46:08', NULL),
+(851692241563, 'Sumit mishra', '2000-05-25', 'Others', '9534287880', 'sumit@abc.com', 'sumit', 'Shahjahanpur', 'I am a Developer.', 'Cricket', '/images/Others.jpg', '2022-05-29 20:56:25', NULL),
 (1083346748089, 'Arpit Sharma', '2000-04-02', 'Male', '8449407886', 'arpit@abc.com', 'arpit', 'Vill Nizampur Post Sirasaul Bilsi Buduan', 'I am a Software Traniee at KiwiTech.', 'Reading Books, Coding, Cricket', '/images/Male.jpg', '2022-03-14 08:21:16', NULL),
+(1107460537996, 'Osho Aditya Sharma', '2001-02-01', 'Male', '9874563210', 'osho@abc.com', 'osho', 'Noida', 'I am a Software Engineer.', 'Computer Programming', '/images/Male.jpg', '2022-05-26 17:44:34', NULL),
 (1160415602329, 'Suraj Saini', '1995-01-04', 'Male', '4609273546', 'suraj@abc.com', 'suraj', 'Village & Post Subhanpur Baghpat Uttar Pradesh India', 'I am a Software Engineer at Leasing Monk.', 'Playing Vollyboll, Doing Excercise', '/images/Male.jpg', '2022-03-14 16:05:55', NULL),
-(1493264725306, 'Rock Sharma', '2001-01-01', 'Male', '6483748374', 'rock@abc.com', 'rock', 'lshfsa fkjabfnskjfa sfkbasjfask fas', 'jdklsd jashfkj', 'sdjkshdnjk', '/images/Male.jpg', '2022-03-15 06:20:43', NULL);
+(1493264725306, 'Rock Sharma', '2001-01-01', 'Male', '6483748374', 'rock@abc.com', 'rock', 'lshfsa fkjabfnskjfa sfkbasjfask fas', 'jdklsd jashfkj', 'sdjkshdnjk', '/images/Male.jpg', '2022-03-15 06:20:43', NULL),
+(1509989957783, 'Abhishek', '2000-02-01', 'Male', '1234567890', 'abhishek@abc.com', 'abhishek', 'Noida', 'I am a Software Engineer.', 'Coding', '/images/Male.jpg', '2022-05-27 08:47:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -430,7 +470,10 @@ CREATE TABLE `user_educations` (
 INSERT INTO `user_educations` (`id`, `userid`, `school`, `degree`, `fieldofstudy`, `startdate`, `enddate`, `description`, `createdat`, `updatedat`) VALUES
 (1, 826445991469, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Science', '2020-12-01', '2022-06-22', '', '2021-12-22 10:16:08', NULL),
 (2, 826445991469, 'Rakshpal Bahadur Management Institute, Bareilly', 'BCA', 'Computer Science', '2017-08-01', '2020-08-07', '', '2021-12-22 17:06:03', NULL),
-(3, 835558995372, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Programming', '2020-11-01', '2022-06-15', '', '2022-03-06 05:30:51', NULL);
+(3, 835558995372, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Programming', '2020-11-01', '2022-06-15', '', '2022-03-06 05:30:51', NULL),
+(4, 821410558924, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Science', '2020-02-01', '2022-07-06', 'It is very good college.', '2022-05-27 09:53:35', NULL),
+(5, 851692241563, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Science', '2020-09-08', '2022-07-07', 'Currently I am Doing MCA.', '2022-05-29 21:16:58', NULL),
+(6, 128329650311, 'GL Bajaj Institute of Technology and Management, Greater Noida', 'MCA', 'Computer Science', '2020-07-06', '2022-07-07', '', '2022-05-29 21:21:20', NULL);
 
 --
 -- Indexes for dumped tables
@@ -479,9 +522,9 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `messageUsers`
+-- Indexes for table `messageusers`
 --
-ALTER TABLE `messageUsers`
+ALTER TABLE `messageusers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -534,13 +577,13 @@ ALTER TABLE `colleges`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `connections`
 --
 ALTER TABLE `connections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -552,25 +595,25 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `messageUsers`
+-- AUTO_INCREMENT for table `messageusers`
 --
-ALTER TABLE `messageUsers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `messageusers`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -582,13 +625,13 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user_educations`
 --
 ALTER TABLE `user_educations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
